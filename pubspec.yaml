@@ -1,0 +1,10 @@
+name: rectangles
+version: 0.0.1
+description: >-
+  Simple implementation of rectangles and points
+author: Peter Loos <peter.loos@gmx.de>
+homepage: https://peterloos.de
+environment:
+  sdk: '>=2.0.0 <3.0.0'
+dependencies:
+  sprintf: ^4.0.2
