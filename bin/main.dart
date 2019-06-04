@@ -9,8 +9,9 @@ void main() {
   test03_center();
   test04_adjust();
   test05_move();
-  test06_intersection();
-  test07_readme();
+  test06_equals();
+  test07_intersection();
+  test08_readme();
 }
 
 void test01_ctors() {
@@ -67,7 +68,18 @@ void test05_move() {
   print(rect);
 }
 
-void test06_intersection() {
+void test06_equals() {
+  Rectangle rect1 = Rectangle(x1: 1, y1: 2, x2: 3, y2: 4);
+  Rectangle rect2 = Rectangle(x1: 1, y1: 2, x2: 3, y2: 4);
+  print(rect1 == rect1);
+  print(rect1 == rect2);
+  rect1.move(1, 0);
+  print(rect1 == rect2);
+  rect1.move(-1, 0);
+  print(rect1 == rect2);
+}
+
+void test07_intersection() {
   Rectangle rect1 = Rectangle(x1: 4, y1: 8, x2: 9, y2: 5);
   Rectangle rect2 = Rectangle(x1: 2, y1: 10, x2: 8, y2: 6);
   Rectangle rect = rect1.intersection(rect2);
@@ -82,7 +94,7 @@ void test06_intersection() {
   print(rect);
 }
 
-void test07_readme() {
+void test08_readme() {
   Rectangle rect1 = Rectangle(x1: 1, y1: 4, x2: 4, y2: 1);
   Rectangle rect2 = Rectangle(x1: 2, y1: 5, x2: 6, y2: 2);
   Rectangle rect = rect1.intersection(rect2);

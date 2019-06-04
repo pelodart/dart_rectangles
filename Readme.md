@@ -59,6 +59,18 @@ Folgende Anforderungen an die Klasse ``Rectangle`` sind mit geeigneten programmi
 
    Testen Sie die geforderte Funktionalität durch entsprechende Testfunktionen im Hauptprogramm.
 
+* Überladen Sie den Operator ``==``, der zwei Rechtecke auf Gleichheit überprüft.
+
+   Beispiel:
+
+   ```dart
+   Rectangle rect1 = Rectangle(x1: 1, y1: 2, x2: 3, y2: 4);
+   Rectangle rect2 = Rectangle(x1: 1, y1: 2, x2: 3, y2: 4);
+   print(rect1 == rect1);
+   ```
+
+   Die ``print``-Methode sollte in diesem Fall ``true`` in der Konsole ausgeben.
+
 ## Test
 
 Testen Sie Ihre Implementierung mit einem möglichst umfangreichen Testrahmen. Das nachfolgende Code-Fragment soll eine Anregung darstellen:
@@ -68,6 +80,7 @@ Testen Sie Ihre Implementierung mit einem möglichst umfangreichen Testrahmen. D
 ```dart
 import 'package:rectangles/point.dart';
 import 'package:rectangles/rectangle.dart';
+// import 'package:rectangles/rectangle_ex.dart';
 import 'package:sprintf/sprintf.dart';
 
 void main() {
@@ -76,8 +89,9 @@ void main() {
   test03_center();
   test04_adjust();
   test05_move();
-  test06_intersection();
-  test07_readme();
+  test06_equals();
+  test07_intersection();
+  test08_readme();
 }
 
 void test01_ctors() {
@@ -134,7 +148,18 @@ void test05_move() {
   print(rect);
 }
 
-void test06_intersection() {
+void test06_equals() {
+  Rectangle rect1 = Rectangle(x1: 1, y1: 2, x2: 3, y2: 4);
+  Rectangle rect2 = Rectangle(x1: 1, y1: 2, x2: 3, y2: 4);
+  print(rect1 == rect1);
+  print(rect1 == rect2);
+  rect1.move(1, 0);
+  print(rect1 == rect2);
+  rect1.move(-1, 0);
+  print(rect1 == rect2);
+}
+
+void test07_intersection() {
   Rectangle rect1 = Rectangle(x1: 4, y1: 8, x2: 9, y2: 5);
   Rectangle rect2 = Rectangle(x1: 2, y1: 10, x2: 8, y2: 6);
   Rectangle rect = rect1.intersection(rect2);
@@ -149,7 +174,7 @@ void test06_intersection() {
   print(rect);
 }
 
-void test07_readme() {
+void test08_readme() {
   Rectangle rect1 = Rectangle(x1: 1, y1: 4, x2: 4, y2: 1);
   Rectangle rect2 = Rectangle(x1: 2, y1: 5, x2: 6, y2: 2);
   Rectangle rect = rect1.intersection(rect2);
@@ -165,7 +190,6 @@ void test07_readme() {
 Rectangle: (0.0,0.0),(0.0,0.0)
   [Area=0.0, Circumference=0.0, 
   Diagonal=0.0, IsSquare=true]
-
 Rectangle: (3.0,5.0),(5.0,3.0)
   [Area=4.0, Circumference=8.0, 
   Diagonal=2.8284271247461903, IsSquare=true]
@@ -175,35 +199,27 @@ Rectangle: (3.0,3.0),(5.0,1.0)
 Rectangle: (1.0,3.0),(3.0,1.0)
   [Area=4.0, Circumference=8.0, 
   Diagonal=2.8284271247461903, IsSquare=true]
-
 Rectangle: (1.0,5.0),(3.0,3.0)
   [Area=4.0, Circumference=8.0, 
   Diagonal=2.8284271247461903, IsSquare=true]
-
 Rectangle: (3.0,10.0),(9.0,4.0)
   [Area=36.0, Circumference=24.0, 
   Diagonal=8.48528137423857, IsSquare=true]
-
 Circumference: 24
 Diagonal:      8.48528
 Area:          36
 IsSquare:      true
-
 Rectangle: (1.0,3.0),(3.0,1.0)
   [Area=4.0, Circumference=8.0, 
   Diagonal=2.8284271247461903, IsSquare=true]
-
 Center: Point: (2.0,2.0)
 Rectangle: (1.0,4.0),(4.0,1.0)
   [Area=9.0, Circumference=12.0, 
   Diagonal=4.242640687119285, IsSquare=true]
-
 Center: Point: (2.5,2.5)
-
 Rectangle: (1.0,3.0),(3.0,1.0)
   [Area=4.0, Circumference=8.0, 
   Diagonal=2.8284271247461903, IsSquare=true]
-
 Rectangle: (1.0,3.0),(4.0,1.0)
   [Area=6.0, Circumference=10.0, 
   Diagonal=3.605551275463989, IsSquare=false]
@@ -216,15 +232,16 @@ Rectangle: (0.0,3.0),(1.0,0.0)
 Rectangle: (0.0,4.0),(1.0,3.0)
   [Area=1.0, Circumference=4.0, 
   Diagonal=1.4142135623730951, IsSquare=true]
-
 Rectangle: (1.0,5.0),(4.0,1.0)
   [Area=12.0, Circumference=14.0, 
   Diagonal=5.0, IsSquare=false]
-
 Rectangle: (6.0,0.0),(9.0,-4.0)
   [Area=12.0, Circumference=14.0, 
   Diagonal=5.0, IsSquare=false]
-
+true
+true
+false
+true
 Rectangle: (4.0,8.0),(8.0,6.0)
   [Area=8.0, Circumference=12.0, 
   Diagonal=4.47213595499958, IsSquare=false]
@@ -234,7 +251,6 @@ Rectangle: (7.0,8.0),(9.0,5.0)
 Rectangle: (7.0,9.0),(9.0,4.0)
   [Area=10.0, Circumference=14.0, 
   Diagonal=5.385164807134504, IsSquare=false]
-
 Rectangle: (6.0,7.0),(9.0,5.0)
   [Area=6.0, Circumference=10.0, 
   Diagonal=3.605551275463989, IsSquare=false]

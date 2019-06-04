@@ -120,6 +120,15 @@ class Rectangle {
     return '${s1}\n  ${s2}\n  ${s3}';
   }
 
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other.runtimeType != runtimeType) return false;
+    final Rectangle otherRectangle = other;
+    return otherRectangle._leftTop == _leftTop &&
+        otherRectangle._rightBottom == _rightBottom;
+  }
+
   // private helper method(s)
   void _normalize() {
     if (_leftTop.X > _rightBottom.X) {

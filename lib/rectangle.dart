@@ -122,6 +122,17 @@ class Rectangle {
     return '${s1}\n  ${s2}\n  ${s3}';
   }
 
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other.runtimeType != runtimeType) return false;
+    final Rectangle otherRectangle = other;
+    return otherRectangle._x1 == _x1 &&
+        otherRectangle._y1 == _y1 &&
+        otherRectangle._x2 == _x2 &&
+        otherRectangle._y2 == _y2;
+  }
+
   // private helper methods
   void _normalize() {
     if (_x1 > _x2) {
