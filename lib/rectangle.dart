@@ -116,9 +116,9 @@ class Rectangle {
 
   @override
   String toString() {
-    String s1 = 'Rectangle: (${X1},${Y1}),(${X2},${Y2})';
-    String s2 = "[Area=${area}, Circumference=${circumference}, ";
-    String s3 = "Diagonal=${diagonal}, IsSquare=${isSquare}]";
+    String s1 = 'Rectangle: (${X1.toStringAsFixed(2)},${Y1.toStringAsFixed(2)}),(${X2.toStringAsFixed(2)},${Y2.toStringAsFixed(2)})';
+    String s2 = "[Area=${area}, Circumference=${circumference.toStringAsFixed(2)}, ";
+    String s3 = "Diagonal=${diagonal.toStringAsFixed(2)}, IsSquare=${isSquare}]";
     return '${s1}\n  ${s2}\n  ${s3}';
   }
 

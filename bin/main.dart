@@ -1,7 +1,5 @@
 import 'package:rectangles/point.dart';
 import 'package:rectangles/rectangle.dart';
-// import 'package:rectangles/rectangle_ex.dart';
-import 'package:sprintf/sprintf.dart';
 
 void main() {
   test01_ctors();
@@ -30,11 +28,11 @@ void test01_ctors() {
 void test02_methods() {
   Rectangle rect = Rectangle(x1: 3, y1: 4, x2: 9, y2: 10);
   print(rect.toString());
-  print(sprintf('Circumference: %g', [rect.circumference]));
-  print(sprintf('Diagonal:      %g', [rect.diagonal]));
-  print(sprintf('Area:          %g', [rect.area]));
+  print('Circumference: ${rect.circumference.toStringAsFixed(2)}');
+  print('Diagonal:      ${rect.diagonal.toStringAsFixed(2)}');
+  print('Area:          ${rect.area.toStringAsFixed(2)}');
   String s = rect.isSquare ? 'true' : 'false';
-  print(sprintf('IsSquare:      %s', [s]));
+  print('IsSquare:      ${s}');
 }
 
 void test03_center() {

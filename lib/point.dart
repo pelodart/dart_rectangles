@@ -25,7 +25,7 @@ class Point {
 
   @override
   String toString() {
-    return 'Point: (${X},${Y})';
+    return 'Point: (${X.toStringAsFixed(2)},${Y.toStringAsFixed(2)})';
   }
 
   @override
